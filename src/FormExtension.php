@@ -46,6 +46,9 @@ if (class_exists('\\Simplified\\TwigBridge\\TwigRenderer')) {
                 ),
                 'form_select' => new \Twig_SimpleFunction('form_select',
                     array($this, 'form_select'),array('is_safe' => array('html'))
+                ),
+                'form_token' => new \Twig_SimpleFunction('form_token',
+                    array($this, 'form_token'),array('is_safe' => array('html'))
                 )
             );
         }
@@ -112,6 +115,11 @@ if (class_exists('\\Simplified\\TwigBridge\\TwigRenderer')) {
 
         public function form_select(array $options = array()) {
             $el = new FormElementSelect($options);
+            return $el->render();
+        }
+
+        public function form_token() {
+            $el = new FormElementToken();
             return $el->render();
         }
 
