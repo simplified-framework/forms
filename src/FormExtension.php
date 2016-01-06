@@ -9,6 +9,7 @@ use Simplified\Forms\FormElementReset;
 use Simplified\Forms\FormElementSubmit;
 use Simplified\Forms\FormElementTextArea;
 use Simplified\Forms\FormElementSelect;
+use Simplified\Forms\FormElementToken;
 
 if (class_exists('\\Simplified\\TwigBridge\\TwigRenderer')) {
     class SimplifiedFormExtension extends \Twig_Extension {
