@@ -34,6 +34,11 @@ abstract class FormElementInterface {
         return $this->attributes;
     }
 
+    public function getAttribute($name) {
+        return isset($this->attributes[$name]) ?
+            $this->attributes[$name] : null;
+    }
+
     public function setDisabled() {
         $this->enabled = false;
     }

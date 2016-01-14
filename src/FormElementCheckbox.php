@@ -11,6 +11,7 @@ namespace Simplified\Forms;
 
 class FormElementCheckbox extends FormElementInput {
     private $label;
+
     public function __construct(array $options = array()) {
         parent::__construct();
         if (isset($options['value'])) {
@@ -34,6 +35,17 @@ class FormElementCheckbox extends FormElementInput {
 
     public function getLabel() {
         return $this->label;
+    }
+
+    public function setChecked($checked) {
+        if ($checked)
+            $this->setAttribute('checked', true);
+        else
+            $this->removeAttribute('checked');
+    }
+
+    public function getChecked() {
+        return $this->getAttribute('checked');
     }
 
     public function render() {
