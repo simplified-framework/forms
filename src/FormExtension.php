@@ -10,6 +10,7 @@ use Simplified\Forms\FormElementSubmit;
 use Simplified\Forms\FormElementTextArea;
 use Simplified\Forms\FormElementSelect;
 use Simplified\Forms\FormElementToken;
+use Simplified\Forms\FormElementSlugField;
 
 if (class_exists('\\Simplified\\TwigBridge\\TwigRenderer')) {
     class SimplifiedFormExtension extends \Twig_Extension {
@@ -50,7 +51,10 @@ if (class_exists('\\Simplified\\TwigBridge\\TwigRenderer')) {
                 ),
                 'form_token' => new \Twig_SimpleFunction('form_token',
                     array($this, 'form_token'),array('is_safe' => array('html'))
-                )
+                ),
+                'form_slug' => new \Twig_SimpleFunction('form_slug',
+                    array($this, 'form_slug'),array('is_safe' => array('html'))
+                ),
             );
         }
 
@@ -121,6 +125,11 @@ if (class_exists('\\Simplified\\TwigBridge\\TwigRenderer')) {
 
         public function form_token() {
             $el = new FormElementToken();
+            return $el->render();
+        }
+
+        public function form_slug(array $options = array()) {
+            $el = new FormElementSlugField($options);
             return $el->render();
         }
 
