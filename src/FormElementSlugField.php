@@ -21,6 +21,7 @@ class FormElementSlugField extends FormElementInterface {
 			unset($options['source']);
 		}
 
+		$this->setAttributes(array_merge($this->attributes(), $options));
 		$id = 'updatefield_' . self::$count;
 		$this->setAttribute('id', $id);
 		self::$count++;
