@@ -11,6 +11,8 @@ use Simplified\Forms\FormElementTextArea;
 use Simplified\Forms\FormElementSelect;
 use Simplified\Forms\FormElementToken;
 use Simplified\Forms\FormElementSlugField;
+use Simplified\Forms\FormElementEditor;
+use Simplified\Forms\FormElementTagInput;
 
 if (class_exists('\\Simplified\\TwigBridge\\TwigRenderer')) {
     class SimplifiedFormExtension extends \Twig_Extension {
@@ -54,6 +56,12 @@ if (class_exists('\\Simplified\\TwigBridge\\TwigRenderer')) {
                 ),
                 'form_slug' => new \Twig_SimpleFunction('form_slug',
                     array($this, 'form_slug'),array('is_safe' => array('html'))
+                ),
+                'form_editor' => new \Twig_SimpleFunction('form_editor',
+                    array($this, 'form_editor'),array('is_safe' => array('html'))
+                ),
+                'form_taginput' => new \Twig_SimpleFunction('form_taginput',
+                    array($this, 'form_taginput'),array('is_safe' => array('html'))
                 ),
             );
         }
@@ -130,6 +138,16 @@ if (class_exists('\\Simplified\\TwigBridge\\TwigRenderer')) {
 
         public function form_slug(array $options = array()) {
             $el = new FormElementSlugField($options);
+            return $el->render();
+        }
+
+        public function form_editor(array $options = array()) {
+            $el = new FormElementEditor($options);
+            return $el->render();
+        }
+
+        public function form_taginput(array $options = array()) {
+            $el = new FormElementTagInput($options);
             return $el->render();
         }
 

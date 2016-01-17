@@ -49,12 +49,16 @@ class FormElementCheckbox extends FormElementInput {
     }
 
     public function render() {
+        $css_class = $this->getAttribute('class');
         $this->removeAttribute('class');
+
         $attrs = array();
         foreach ($this->attributes() as $key => $value) {
+            if ($key == 'checked' && empty($value))
+                continue;
             $attrs[] = $key . '="' . $value . '"';
         }
 
-        return '<div class="checkbox"><label><input ' . implode(" ", $attrs) . ' value="'.$this->value().'"/>'.$this->getLabel().'</label></div>';
+        return '<label class="'.$css_class.'"><input ' . implode(" ", $attrs) . ' value="'.$this->value().'"/>'.$this->getLabel().'</label>';
     }
 }
