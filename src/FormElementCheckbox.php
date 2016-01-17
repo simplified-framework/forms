@@ -25,7 +25,6 @@ class FormElementCheckbox extends FormElementInput {
         }
 
         $this->setAttribute('type', 'checkbox');
-        $this->setAttribute('value', "");
         $this->setAttributes(array_merge($this->attributes(), $options));
     }
 
