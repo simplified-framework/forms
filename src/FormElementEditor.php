@@ -34,6 +34,8 @@ class FormElementEditor extends FormElementTextArea {
 			height: '.$this->height.',
 			resize: '.($this->resize ? "true" : "false").',
 			statusbar: '.($this->statusbar ? "true" : "false").',
+			plugins : "paste",
+			paste_as_text: true,
 			setup: function (editor) {
 				editor.on("change", function () {
 					editor.save();
