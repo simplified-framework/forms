@@ -27,6 +27,6 @@ class FormElementInput extends FormElementInterface {
             $attrs[] = $key . '="' . $value . '"';
         }
 
-        return '<input ' . implode(" ", $attrs) . ' value="'.$this->value().'"/>';
+        return '<input ' . implode(" ", $attrs) . ' value="'.htmlspecialchars($this->value(),ENT_QUOTES, 'UTF-8').'"/>';
     }
 }

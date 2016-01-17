@@ -41,8 +41,8 @@ class FormElementSlugField extends FormElementInterface {
 
 		$id = $this->getAttribute('id');
 		$content  = '<div class="textfield" style="float: left;border: 0;padding-left: 0;">';
-		$content .= '<span id="'.$id.'_editablestring">'.$this->value().'</span>';
-		$content .= '<input type="text" class="textfield short" id="'.$id.'_editableinput" value="'.$this->value().'" style="display:none;"/>';
+		$content .= '<span id="'.$id.'_editablestring">'.htmlspecialchars($this->value(),ENT_QUOTES, 'UTF-8').'</span>';
+		$content .= '<input type="text" class="textfield short" id="'.$id.'_editableinput" value="'.htmlspecialchars($this->value(),ENT_QUOTES, 'UTF-8').'" style="display:none;"/>';
 		$content .= '<a class="btn btn-info" id="'.$id.'_button" style="margin-left: 8px;display: '.$hide_edit_button.'"><i class="glyphicon glyphicon-pencil"></i><span>Edit</span></a>';
 		$content .= '<input type="hidden" ' . implode(' ', $attrs) . '/>';
 		$content .= '</div>';

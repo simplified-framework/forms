@@ -28,6 +28,6 @@ class FormElementTextArea extends FormElementInterface{
             $attrs[] = $key . '="' . $value . '"';
         }
 
-        return '<textarea ' . implode(" ", $attrs) . '>'.$this->value().'</textarea>';
+        return '<textarea ' . implode(" ", $attrs) . '>'.htmlspecialchars($this->value(),ENT_QUOTES, 'UTF-8').'</textarea>';
     }
 }

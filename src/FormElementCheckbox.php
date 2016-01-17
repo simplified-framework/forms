@@ -58,6 +58,6 @@ class FormElementCheckbox extends FormElementInput {
             $attrs[] = $key . '="' . $value . '"';
         }
 
-        return '<label class="'.$css_class.'"><input ' . implode(" ", $attrs) . ' value="'.$this->value().'"/>'.$this->getLabel().'</label>';
+        return '<label class="'.$css_class.'"><input ' . implode(" ", $attrs) . ' value="'.htmlspecialchars($this->value(),ENT_QUOTES, 'UTF-8').'"/>'.$this->getLabel().'</label>';
     }
 }

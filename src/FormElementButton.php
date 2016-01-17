@@ -25,6 +25,6 @@ class FormElementButton extends FormElementInterface{
             $attrs[] = $key . '="' . $value . '"';
         }
 
-        return '<button ' . implode(" ", $attrs) . '>'.$this->value().'</button>';
+        return '<button ' . implode(" ", $attrs) . '>'.htmlspecialchars($this->value(),ENT_QUOTES, 'UTF-8').'</button>';
     }
 }

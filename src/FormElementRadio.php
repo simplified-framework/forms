@@ -43,6 +43,6 @@ class FormElementRadio extends FormElementInput {
             $attrs[] = $key . '="' . $value . '"';
         }
 
-        return '<div class="radio"><label><input ' . implode(" ", $attrs) . ' value="'.$this->value().'"/>'.$this->getLabel().'</label></div>';
+        return '<div class="radio"><label><input ' . implode(" ", $attrs) . ' value="'.htmlspecialchars($this->value(),ENT_QUOTES, 'UTF-8').'"/>'.$this->getLabel().'</label></div>';
     }
 }
